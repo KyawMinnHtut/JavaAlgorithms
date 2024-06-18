@@ -18,14 +18,22 @@ public final class ValidParentheses {
                 stack[head++] = c;
                 break;
             case '}':
-                if (head == 0 || stack[--head] != '{') return false;
+                if (head == 0 || stack[--head] != '{') {
+                    return false;
+                }
                 break;
             case ')':
-                if (head == 0 || stack[--head] != '(') return false;
+                if (head == 0 || stack[--head] != '(') {
+                    return false;
+                }
                 break;
             case ']':
-                if (head == 0 || stack[--head] != '[') return false;
+                if (head == 0 || stack[--head] != '[') {
+                    return false;
+                }
                 break;
+            default:
+                throw new IllegalArgumentException("Unexpected character: " + c);
             }
         }
         return head == 0;

@@ -22,9 +22,12 @@ public final class AutomorphicNumber {
      *         {@code false}
      */
     public static boolean isAutomorphic(long n) {
-        if (n < 0) return false;
+        if (n < 0) {
+            return false;
+        }
         long square = n * n; // Calculating square of the number
-        long t = n, numberOfdigits = 0;
+        long t = n;
+        long numberOfdigits = 0;
         while (t > 0) {
             numberOfdigits++; // Calculating number of digits in n
             t /= 10;
@@ -41,7 +44,9 @@ public final class AutomorphicNumber {
      *         {@code false}
      */
     public static boolean isAutomorphic2(long n) {
-        if (n < 0) return false;
+        if (n < 0) {
+            return false;
+        }
         long square = n * n; // Calculating square of the number
         return String.valueOf(square).endsWith(String.valueOf(n));
     }
@@ -55,7 +60,9 @@ public final class AutomorphicNumber {
      */
     public static boolean isAutomorphic3(String s) {
         BigInteger n = new BigInteger(s);
-        if (n.signum() == -1) return false; // if number is negative, return false
+        if (n.signum() == -1) {
+            return false; // if number is negative, return false
+        }
         BigInteger square = n.multiply(n); // Calculating square of the number
         return String.valueOf(square).endsWith(String.valueOf(n));
     }

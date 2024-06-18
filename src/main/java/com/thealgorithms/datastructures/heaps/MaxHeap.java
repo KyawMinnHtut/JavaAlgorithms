@@ -91,18 +91,20 @@ public class MaxHeap implements Heap {
     }
 
     @Override
-    public void insertElement(HeapElement element) {
+    public final void insertElement(HeapElement element) {
         maxHeap.add(element);
         toggleUp(maxHeap.size());
     }
 
     @Override
     public void deleteElement(int elementIndex) {
-        if (maxHeap.isEmpty()) try {
+        if (maxHeap.isEmpty()) {
+            try {
                 throw new EmptyHeapException("Attempt to delete an element from an empty heap");
             } catch (EmptyHeapException e) {
                 e.printStackTrace();
             }
+        }
         if ((elementIndex > maxHeap.size()) || (elementIndex <= 0)) {
             throw new IndexOutOfBoundsException("Index out of heap range");
         }
